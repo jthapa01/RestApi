@@ -12,10 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: DevHabit
-
     steps:
       - uses: actions/checkout@v4
 
@@ -25,7 +21,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore DevHabit.sln
 
       - name: Build
         run: dotnet build DevHabit.sln --configuration Release --no-restore
